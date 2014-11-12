@@ -8,26 +8,70 @@
 public class NumberDisplay
 {
     // instance variables - replace the example below with your own
-    private int x;
+    private int display;
+    private int displayLimite;
 
     /**
      * Constructor for objects of class NumberDisplay
      */
-    public NumberDisplay()
+    public NumberDisplay(int limite)
     {
         // initialise instance variables
-        x = 0;
+        display = 0;
+        displayLimite = limite;
+    }
+    
+    /*
+     * Método que fija el valor actual del display al valor pasado
+     */
+    public void setValue(int value)
+    {
+        display = value;
+    }
+    
+    /*
+     * Método que devuelve el valor actual del display en forma de cadena
+     * de dos caracteres
+     */
+    public String getDisplayValue()
+    {
+        String displayValue;
+        if(display<10 & display>=0)
+        {
+            displayValue = "0" + display;
+        }
+        else
+        {
+            displayValue = "" + display;
+        }
+        return displayValue;
+    }
+    
+    /*
+     * Método que devuelve el valor actual del display en forma de cadena
+     * de dos caracteres
+     */
+    public int getValue()
+    {
+        int value;
+        value = display;
+        return value;
+    }
+    
+    /*
+     * Método que incrementa 1 al display
+     */
+    public void increment()
+    {
+        if(display >= displayLimite)
+        {
+            display = 0;
+        }
+        else 
+        {
+            display = display + 1;
+        }
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
-    }
+
 }
