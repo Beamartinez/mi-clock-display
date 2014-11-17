@@ -7,8 +7,9 @@
  */
 public class NumberDisplay
 {
-    // instance variables - replace the example below with your own
+    //El valor almacenado
     private int display;
+    //El limite al que puede llegar el valor
     private int displayLimite;
 
     /**
@@ -48,8 +49,7 @@ public class NumberDisplay
     }
     
     /*
-     * Método que devuelve el valor actual del display en forma de cadena
-     * de dos caracteres
+     * Método que devuelve el valor actual del display en forma de entero
      */
     public int getValue()
     {

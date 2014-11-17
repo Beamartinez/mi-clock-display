@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ClockDisplay()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ ClockDisplay\r\n
+comment1.params=horas2\ minutos2
+comment1.target=ClockDisplay(int,\ int)
+comment1.text=\r\n\ Constructor\ que\ representa\ las\ horas\ y\ minutos\ a\ los\ que\ fijar\ la\ hora\ actual\r\n
+comment2.params=newHoras\ newMinutos
+comment2.target=void\ setTime(int,\ int)
+comment2.text=\r\n\ M\u00E9todo\ que\ acepte\ dos\ par\u00E1metros\ de\ tipo\ int,\ que\ represente\ horas\ y\ minutos\r\n\ y\ que\ fije\ dichos\ valores\ como\ el\ tiempo\ actual\ del\ reloj\r\n
+comment3.params=
+comment3.target=void\ getDisplayValue()
+comment4.params=
+comment4.target=java.lang.String\ getTime()
+comment4.text=\r\n\ M\u00E9todo\ que\ devuelva\ la\ hora\ como\ String\ de\ 5\ caracteres\r\n
+comment5.params=
+comment5.target=void\ getValue()
+comment6.params=
+comment6.target=void\ timeTick()
+comment6.text=\r\n\ M\u00E9todo\ que\ haga\ avanzar\ un\ minuto\ la\ hora\ actual\r\n
+numComments=7
