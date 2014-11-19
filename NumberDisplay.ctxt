@@ -2,7 +2,7 @@
 comment0.params=limite
 comment0.target=NumberDisplay(int)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ NumberDisplay\r\n
-comment1.params=value
+comment1.params=replacementValue
 comment1.target=void\ setValue(int)
 comment1.text=\r\n\ M\u00E9todo\ que\ fija\ el\ valor\ actual\ del\ display\ al\ valor\ pasado\r\n
 comment2.params=

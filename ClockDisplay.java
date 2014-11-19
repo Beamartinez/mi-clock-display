@@ -1,27 +1,27 @@
-
 /**
  * Write a description of class ClockDisplay here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
+
 public class ClockDisplay
 {
-    // instance variables - replace the example below with your own
+    //objeto NumberDisplay que guarda las horas
     private NumberDisplay horas;
+	//objeto NumberDisplay que guarda los minutos
     private NumberDisplay minutos;
+	//String de 5 caracteres: la hora, dos puntos y los minutos
     private String horaAct;
 
-    /**
+    /*
      * Constructor for objects of class ClockDisplay
      */
     public ClockDisplay()
     {
-        horas = new NumberDisplay(23);
-        minutos = new NumberDisplay(59);
-        horas.setValue(0);
-        minutos.setValue(0);
-        horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        horas = new NumberDisplay(13);
+        minutos = new NumberDisplay(60);
+        updateDisplay();
     }
     
     /*
@@ -29,11 +29,11 @@ public class ClockDisplay
      */
     public ClockDisplay(int horas2, int minutos2)
     {
-        horas = new NumberDisplay(23);
-        minutos = new NumberDisplay(59);
-        horas.setValue(horas2);
-        minutos.setValue(minutos2);
-        horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        horas = new NumberDisplay(13);
+        minutos = new NumberDisplay(60);
+		horas.setValue(horas2);
+		minutos.setValue(minutos2);
+        updateDisplay();
     }
     
     /*
@@ -44,12 +44,7 @@ public class ClockDisplay
     {
         horas.setValue(newHoras);
         minutos.setValue(newMinutos);
-        getDisplayValue();
-    }
-    
-    public void getDisplayValue()
-    {
-        horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        updateDisplay();
     }
     
     /*
@@ -58,11 +53,6 @@ public class ClockDisplay
     public String getTime()
     {
         return horaAct;
-    }
-    
-    public void getValue()
-    {
-        System.out.println(horas.getValue() + " " + minutos.getValue());
     }
     
     /*
@@ -75,7 +65,15 @@ public class ClockDisplay
         {
             horas.increment();
         }
-        getDisplayValue();
+		updateDisplay();
     }
-
+	
+	/*
+	 * Localiza el atributo horaAct
+	 * El private es un método
+	 */
+	private void updateDisplay()
+	{
+		horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+	}
 }

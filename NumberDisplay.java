@@ -25,9 +25,12 @@ public class NumberDisplay
     /*
      * Método que fija el valor actual del display al valor pasado
      */
-    public void setValue(int value)
+    public void setValue(int replacementValue)
     {
-        display = value;
+        if((replacementValue >= 0) && (replacementValue < displayLimite)) {
+            display = replacementValue;
+        }
+
     }
     
     /*
