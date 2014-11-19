@@ -33,14 +33,7 @@ public class ClockDisplay
         minutos = new NumberDisplay(60);
         horas.setValue(horas2);
         minutos.setValue(minutos2);
-        if(horas.getValue() >= 0 & horas.getValue() < 13) 
-        {
-            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + "a.m.";
-        }
-        else
-        {
-            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + "p.m.";
-        }
+        updateDisplay();
     }
     
     /*
@@ -81,6 +74,25 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+        if (horas.getValue() > 12)
+        {
+            int otrasHoras;
+            otrasHoras = horas.getValue() - 12;
+            horaAct = otrasHoras + ":" + minutos.getDisplayValue() + " p.m.";
+        }
+        else if(horas.getValue() == 0)
+        {
+            int otrasHoras;
+            otrasHoras = 12;
+            horaAct = otrasHoras + ":" + minutos.getDisplayValue() + " a.m.";
+        }
+        else if(horas.getValue() == 12)
+        {
+            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + " p.m.";
+        }
+        else
+        {
+            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + " a.m.";
+        }
     }
 }
