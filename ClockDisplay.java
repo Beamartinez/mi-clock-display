@@ -9,9 +9,9 @@ public class ClockDisplay
 {
     //objeto NumberDisplay que guarda las horas
     private NumberDisplay horas;
-	//objeto NumberDisplay que guarda los minutos
+    //objeto NumberDisplay que guarda los minutos
     private NumberDisplay minutos;
-	//String de 5 caracteres: la hora, dos puntos y los minutos
+    //String de 5 caracteres: la hora, dos puntos y los minutos
     private String horaAct;
 
     /*
@@ -19,7 +19,7 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        horas = new NumberDisplay(13);
+        horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60);
         updateDisplay();
     }
@@ -29,11 +29,18 @@ public class ClockDisplay
      */
     public ClockDisplay(int horas2, int minutos2)
     {
-        horas = new NumberDisplay(13);
+        horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60);
-		horas.setValue(horas2);
-		minutos.setValue(minutos2);
-        updateDisplay();
+        horas.setValue(horas2);
+        minutos.setValue(minutos2);
+        if(horas.getValue() >= 0 & horas.getValue() < 13) 
+        {
+            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + "a.m.";
+        }
+        else
+        {
+            horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + "p.m.";
+        }
     }
     
     /*
@@ -65,15 +72,15 @@ public class ClockDisplay
         {
             horas.increment();
         }
-		updateDisplay();
+        updateDisplay();
     }
-	
-	/*
-	 * Localiza el atributo horaAct
-	 * El private es un método
-	 */
-	private void updateDisplay()
-	{
-		horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
-	}
+    
+    /*
+     * Localiza el atributo horaAct
+     * El private es un método
+     */
+    private void updateDisplay()
+    {
+        horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue();
+    }
 }
