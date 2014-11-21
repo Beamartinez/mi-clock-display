@@ -11,8 +11,12 @@ public class ClockDisplay
     private NumberDisplay horas;
     //objeto NumberDisplay que guarda los minutos
     private NumberDisplay minutos;
+    private NumberDisplay años;
+    private NumberDisplay meses;
+    private NumberDisplay dias;
     //String de 5 caracteres: la hora, dos puntos y los minutos
     private String horaAct;
+    private String fechaAct;
 
     /*
      * Constructor for objects of class ClockDisplay
@@ -21,30 +25,45 @@ public class ClockDisplay
     {
         horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60);
+        años = new NumberDisplay(99);
+        meses = new NumberDisplay(13);
+        dias = new NumberDisplay(31);
         updateDisplay();
+        fecha();
     }
     
     /*
      * Constructor que representa las horas y minutos a los que fijar la hora actual
      */
-    public ClockDisplay(int horas2, int minutos2)
+    public ClockDisplay(int hora, int minuto, int año, int mes, int dia)
     {
         horas = new NumberDisplay(24);
         minutos = new NumberDisplay(60);
-        horas.setValue(horas2);
-        minutos.setValue(minutos2);
+        años = new NumberDisplay(99);
+        meses = new NumberDisplay(13);
+        dias = new NumberDisplay(31);
+        horas.setValue(hora);
+        minutos.setValue(minuto);
+        años.setValue(año);
+        meses.setValue(mes);
+        dias.setValue(dia);
         updateDisplay();
+        fecha();
     }
     
     /*
      * Método que acepte dos parámetros de tipo int, que represente horas y minutos
      * y que fije dichos valores como el tiempo actual del reloj
      */
-    public void setTime(int newHoras, int newMinutos)
+    public void setTime(int newHoras, int newMinutos, int newAños, int newMeses, int newDias)
     {
         horas.setValue(newHoras);
         minutos.setValue(newMinutos);
+        años.setValue(newAños);
+        meses.setValue(newMeses);
+        dias.setValue(newDias);
         updateDisplay();
+        fecha();
     }
     
     /*
@@ -52,7 +71,7 @@ public class ClockDisplay
      */
     public String getTime()
     {
-        return horaAct;
+        return horaAct + " " + fechaAct;
     }
     
     /*
@@ -64,8 +83,26 @@ public class ClockDisplay
         if(minutos.getValue() == 0)
         {
             horas.increment();
+            
+            if(horas.getValue() == 0)
+            {
+                dias.increment();
+                
+                if(dias.getValue() == 0)
+                {
+                    dias.increment();
+                    meses.increment();
+                    
+                    if(meses.getValue() == 0)
+                    {
+                        meses.increment();
+                        años.increment();
+                    }
+                }
+            }
         }
         updateDisplay();
+        fecha();
     }
     
     /*
@@ -94,5 +131,10 @@ public class ClockDisplay
         {
             horaAct = horas.getDisplayValue() + ":" + minutos.getDisplayValue() + " a.m.";
         }
+    }
+    
+    public void fecha()
+    {
+        fechaAct = dias.getDisplayValue() + "/" + meses.getDisplayValue() + "/" + años.getDisplayValue();
     }
 }

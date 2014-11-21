@@ -66,14 +66,7 @@ public class NumberDisplay
      */
     public void increment()
     {
-        if(display >= displayLimite)
-        {
-            display = 0;
-        }
-        else 
-        {
-            display = display + 1;
-        }
+        display = (display + 1) % displayLimite;
     }
 
 
